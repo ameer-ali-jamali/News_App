@@ -39,12 +39,23 @@ php artisan db:seed
 
 ## 6. Usage
 To use the API, you can make requests to the following endpoints:
-```
+
 GET /articles: Get a collection of all articles.
+
 GET /articles/{id}: Get a specific article by its ID.
+
 POST /articles: Create a new article.
+
 PUT /articles/{id}: Update an existing article.
+
 DELETE /articles/{id}: Delete an article.
+
+```
+GET /articles: http://localhost:8000/articles
+GET /articles/{id}: http://localhost:8000/articles/{id}
+POST /articles: http://localhost:8000/articles
+PUT /articles/{id}: http://localhost:8000/articles/{id}
+DELETE /articles/{id}: http://localhost:8000/articles/{id}
 ```
 
 # Examples
