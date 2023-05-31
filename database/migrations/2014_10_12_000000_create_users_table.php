@@ -15,15 +15,11 @@ class CreateUsersTable extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->integer('id')->autoIncrement();
-            $table->string('title');
-            $table->string('content');
-            $table->string('author');
-            $table->string('category');
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            // $table->rememberToken();
+            $table->string('title', 500);
+            $table->string('content', 500);
+            $table->string('author', 500);
+            $table->string('category', 500);
             $table->timestamp('published_at')->useCurrent();
-            $table->timestamps();
         });
     }
 
