@@ -55,4 +55,11 @@ class ArticleController extends Controller
         $article->save();
         return response()->json($article);
     }
+    //
+    public function destroy($id)
+    {
+        $article = Article::findOrFail($id);
+        $article->delete();
+        return response()->json('Article deleted');
+    }
 }
