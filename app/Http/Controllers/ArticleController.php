@@ -28,7 +28,6 @@ class ArticleController extends Controller
             'content' => 'required',
             'author' => 'required',
             'category' => 'required',
-            'published_at' => 'required|date',
 
         ]);
         $article = new Article();
@@ -36,8 +35,24 @@ class ArticleController extends Controller
         $article->content = $validatedData['content'];
         $article->author = $validatedData['author'];
         $article->category = $validatedData['category'];
-        $article->published_at = $validatedData['published_at'];
         $article->save();
         return response()->json($article, 201);
+    }
+    //
+    public function update(Request $request, $id)
+    {
+        $validatedData = $request->validate([
+            'title' => 'required|max:30',
+            'content' => 'required',
+            'author' => 'required',
+            'category' => 'required',
+        ]);
+        $article = Article::findOrFail($id);
+        $article->title = $validatedData['title'];
+        $article->content = $validatedData['content'];
+        $article->author = $validatedData['author'];
+        $article->category = $validatedData['category'];
+        $article->save();
+        return response()->json($article);
     }
 }
