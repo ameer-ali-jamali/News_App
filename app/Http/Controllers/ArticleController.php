@@ -12,4 +12,10 @@ class ArticleController extends Controller
         $articles = Article::orderBy('id')->get();
         return response()->json($articles);
     }
+
+    public function show($id)
+    {
+        $article = Article::findOrFail($id);
+        return response()->json($article);
+    }
 }
