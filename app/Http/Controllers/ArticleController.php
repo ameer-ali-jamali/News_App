@@ -23,36 +23,35 @@ class ArticleController extends Controller
     public function store(Request $request)
     {
 
-        // $validatedData = $request->validate([
-        //     'title' => 'required|max:30',
-        //     'content' => 'required',
-        //     'author' => 'required',
-        //     'category' => 'required',
-
-        // ]);
+        $validatedData = $request->validate([
+            'title' => 'required|max:30',
+            'content' => 'required',
+            'author' => 'required',
+            'category' => 'required',
+        ]);
         $article = new Article();
-        $article->title = $request['title'];
-        $article->content = $request['content'];
-        $article->author = $request['author'];
-        $article->category = $request['category'];
+        $article->title = $validatedData['title'];
+        $article->content = $validatedData['content'];
+        $article->author = $validatedData['author'];
+        $article->category = $validatedData['category'];
         $article->save();
         return response()->json($article, 201);
     }
     //
     public function update(Request $request, $id)
     {
-        // $validatedData = $request->validate([
-        //     'title' => 'required|max:30',
-        //     'content' => 'required',
-        //     'author' => 'required',
-        //     'category' => 'required',
-        // ]);
+        $validatedData = $request->validate([
+            'title' => 'required|max:30',
+            'content' => 'required',
+            'author' => 'required',
+            'category' => 'required',
+        ]);
         $article = Article::findOrFail($id);
-        $article->title = $request['title'];
-        $article->content = $request['content'];
-        $article->author = $request['author'];
-        $article->category = $request['category'];
-        $article->save();
+        $article->title = $validatedData['title'];
+        $article->content = $validatedData['content'];
+        $article->author = $validatedData['author'];
+        $article->category = $validatedData['category'];
+        $article->update();
         return response()->json($article);
     }
     //

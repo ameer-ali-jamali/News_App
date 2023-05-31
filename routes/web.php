@@ -21,6 +21,6 @@ Route::get('/', function () {
 
 Route::get('/articles', [ArticleController::class, 'index']);
 Route::get('/articles/{id}', [ArticleController::class, 'show']);
-Route::get('/articles/post', [ArticleController::class, 'store']);
-Route::get('/update/{id}', [ArticleController::class, 'update']);
-Route::get('/delete/{id}', [ArticleController::class, 'destroy']);
+Route::post('/articles', [ArticleController::class, 'store']);
+Route::put('/articles/{id}', [ArticleController::class, 'update']);
+Route::any('/destroy/{id}', [ArticleController::class, 'destroy']);
